@@ -3,5 +3,9 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp3.0</TargetFramework>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="SapphireEngineCore" Version="1.0.0" />
+    </ItemGroup>
 
 </Project>
