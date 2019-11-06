@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FastestTimeUDPClient
+namespace FastestTimeUDP.Client
 {
     class Program
     {

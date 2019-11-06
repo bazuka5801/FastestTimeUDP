@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FastestTimeUDPServer
+namespace FastestTimeUDP.Server
 {
     class Program
     {
