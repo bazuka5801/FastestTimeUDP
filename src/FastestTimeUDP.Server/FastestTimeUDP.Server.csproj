@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FastestTimeUDPCommon\FastestTimeUDPCommon.csproj" />
+      <ProjectReference Include="..\FastestTimeUDP.Common\FastestTimeUDP.Common.csproj" />
     </ItemGroup>
 
 </Project>
