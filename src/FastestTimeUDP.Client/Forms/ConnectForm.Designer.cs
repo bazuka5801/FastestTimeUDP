@@ -75,6 +75,7 @@ namespace FastestTimeUDP.Client.Forms
             this.btnConnect.TabIndex                =  2;
             this.btnConnect.Text                    =  "Присоединиться";
             this.btnConnect.UseVisualStyleBackColor =  true;
+            this.btnConnect.Click                   += new System.EventHandler(this.btnConnect_Click);
             // 
             // tlpFormFields
             // 

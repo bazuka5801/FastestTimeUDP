@@ -9,5 +9,11 @@ namespace FastestTimeUDP.Client.Forms
         {
             InitializeComponent();
         }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            // TODO: Add connection code
+            new MainForm().ShowDialog();
+        }
     }
 }
