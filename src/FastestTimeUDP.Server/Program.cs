@@ -1,4 +1,5 @@
 ﻿using System;
+using SapphireEngine;
 
 namespace FastestTimeUDP.Server
 {
@@ -6,7 +7,7 @@ namespace FastestTimeUDP.Server
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Framework.Initialization<AppCore>();
         }
     }
 }
