@@ -6,7 +6,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="SapphireEngineCore" Version="1.0.0" />
+        <PackageReference Include="SapphireEngineCore" Version="1.0.1" />
     </ItemGroup>
 
 </Project>
