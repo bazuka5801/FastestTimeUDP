@@ -1,12 +1,21 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
+        <OutputType>WinExe</OutputType>
         <TargetFramework>netcoreapp3.0</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyName>FastestTimeUDP.Client</AssemblyName>
+        <RootNamespace>FastestTimeUDP.Client</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\FastestTimeUDP.Common\FastestTimeUDP.Common.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.0.0" />
     </ItemGroup>
 
 </Project>
