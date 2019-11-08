@@ -11,3 +11,6 @@ obj/
 
 # Generated files
 .idea/**/contentModel.xml
+
+# Visual Studio
+.vs
