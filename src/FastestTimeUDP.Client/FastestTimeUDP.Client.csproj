@@ -13,9 +13,5 @@
     <ItemGroup>
       <ProjectReference Include="..\FastestTimeUDP.Common\FastestTimeUDP.Common.csproj" />
     </ItemGroup>
-    
-    <ItemGroup>
-        <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.0.0" />
-    </ItemGroup>
 
 </Project>
