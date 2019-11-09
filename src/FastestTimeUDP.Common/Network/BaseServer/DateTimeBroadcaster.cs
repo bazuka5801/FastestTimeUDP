@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Sockets;
 using System.Threading;
 
 namespace FastestTimeUDP.Common.Network
@@ -29,9 +30,13 @@ namespace FastestTimeUDP.Common.Network
             var now = BitConverter.GetBytes(DateTime.Now.ToBinary());
             var list = _SessionStore.GetAllSessions();
 
-            for (int i = 0; i < list.Count; i++)
+            lock (lockObject)
             {
-                _Net.Send(now, now.Length, list[i].RemoteIP);
+                for (int i = 0; i < list.Count; i++)
+                {
+                    _Net.SendTo(now, now.Length, SocketFlags.None, list[i].RemoteIP);
+                    PPS++;
+                }
             }
         }
     }
