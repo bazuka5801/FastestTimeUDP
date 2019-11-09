@@ -1,8 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
     <PropertyGroup>
-        <OutputType>Exe</OutputType>
+        <OutputType>WinExe</OutputType>
         <TargetFramework>netcoreapp3.0</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyName>FastestTimeUDP.Server</AssemblyName>
+        <RootNamespace>FastestTimeUDP.Server</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
