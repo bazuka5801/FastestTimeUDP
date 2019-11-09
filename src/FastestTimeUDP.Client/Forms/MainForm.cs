@@ -1,15 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms;
+using FastestTimeUDP.Common.Extensions;
+using FastestTimeUDP.Common.Network;
 
 namespace FastestTimeUDP.Client.Forms
 {
     public partial class MainForm : Form
     {
+        private ConnectModel _Model;
         public MainForm()
         {
             InitializeComponent();
+            
+            AppCore.Client.StatusUpdate += StatusUpdate;
+            AppCore.Client.ClientPPS += ClientPps;
+        }
+
+        private void ClientPps(object sender, ClientPPSEventArgs e)
+        {
+            this.RunInUI(() => { lblReceivedPackages.Text = e.PPS.ToString(); });
+        }
+
+        private void StatusUpdate(object sender, ClientStatusEventArgs e)
+        {
+            this.RunInUI(() => { lblStatus.Text = e.Status.ToString(); });
+        }
+
+
+        private void InitConnect()
+        {
+            var connectModel = new ConnectModel();
+            new ConnectForm(connectModel).ShowDialog();
+
+            if (connectModel.Success == true)
+            {
+                msConnect.Enabled = false;
+                AppCore.Client.Connect(connectModel.IP, connectModel.Port);
+            }
+        }
+
+        private void msConnect_Click(object sender, EventArgs e)
+        {
+            InitConnect();
+        }
+        
+        private void msInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(@"Автор: github.com/bazuka5801", "Информация");
         }
     }
 }

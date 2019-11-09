@@ -30,28 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources =
                 new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.btnConnect                 = new System.Windows.Forms.Button();
             this.lblStatusCaption           = new System.Windows.Forms.Label();
             this.lblReceivedPackagesCaption = new System.Windows.Forms.Label();
             this.groupBox1                  = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1          = new System.Windows.Forms.TableLayoutPanel();
             this.lblReceivedPackages        = new System.Windows.Forms.Label();
             this.lblStatus                  = new System.Windows.Forms.Label();
+            this.ms                         = new System.Windows.Forms.MenuStrip();
+            this.msConnect                  = new System.Windows.Forms.ToolStripMenuItem();
+            this.msInfo                     = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.ms.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnConnect
-            // 
-            this.btnConnect.Font =
-                new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.btnConnect.Location                = new System.Drawing.Point(12, 123);
-            this.btnConnect.Margin                  = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.btnConnect.Name                    = "btnConnect";
-            this.btnConnect.Size                    = new System.Drawing.Size(388, 51);
-            this.btnConnect.TabIndex                = 0;
-            this.btnConnect.Text                    = "Отключиться";
-            this.btnConnect.UseVisualStyleBackColor = true;
             // 
             // lblStatusCaption
             // 
@@ -73,7 +64,7 @@
             this.lblReceivedPackagesCaption.Padding   = new System.Windows.Forms.Padding(5);
             this.lblReceivedPackagesCaption.Size      = new System.Drawing.Size(174, 29);
             this.lblReceivedPackagesCaption.TabIndex  = 1;
-            this.lblReceivedPackagesCaption.Text      = "Получно пакетов: ";
+            this.lblReceivedPackagesCaption.Text      = "PPS:";
             this.lblReceivedPackagesCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox1
@@ -83,7 +74,7 @@
                                                         System.Windows.Forms.AnchorStyles.Left) |
                                                        System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name     = "groupBox1";
             this.groupBox1.Padding  = new System.Windows.Forms.Padding(10);
             this.groupBox1.Size     = new System.Drawing.Size(388, 102);
@@ -138,34 +129,64 @@
             this.lblStatus.Text      = "...";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // ms
+            // 
+            this.ms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.msConnect, this.msInfo});
+            this.ms.Location = new System.Drawing.Point(0, 0);
+            this.ms.Name     = "ms";
+            this.ms.Size     = new System.Drawing.Size(412, 24);
+            this.ms.TabIndex = 3;
+            this.ms.Text     = "menuStrip1";
+            // 
+            // msConnect
+            // 
+            this.msConnect.Name  =  "msConnect";
+            this.msConnect.Size  =  new System.Drawing.Size(111, 20);
+            this.msConnect.Text  =  "Присоединиться";
+            this.msConnect.Click += new System.EventHandler(this.msConnect_Click);
+            // 
+            // msInfo
+            // 
+            this.msInfo.Name  =  "msInfo";
+            this.msInfo.Size  =  new System.Drawing.Size(51, 20);
+            this.msInfo.Text  =  "Инфо";
+            this.msInfo.Click += new System.EventHandler(this.msInfo_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode       = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize          = new System.Drawing.Size(412, 186);
+            this.ClientSize          = new System.Drawing.Size(412, 141);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.ms);
             this.Font            = new System.Drawing.Font("Verdana", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon            = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
+            this.MainMenuStrip   = this.ms;
             this.Margin          = new System.Windows.Forms.Padding(4);
             this.MaximizeBox     = false;
             this.MinimizeBox     = false;
             this.Name            = "MainForm";
             this.StartPosition   = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text            = "Fastest Time - UDP";
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.ms.ResumeLayout(false);
+            this.ms.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnConnect;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblReceivedPackagesCaption;
         private System.Windows.Forms.Label lblStatusCaption;
         private System.Windows.Forms.Label lblReceivedPackages;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.ToolStripMenuItem msInfo;
+        private System.Windows.Forms.ToolStripMenuItem msConnect;
+        private System.Windows.Forms.MenuStrip ms;
     }
 }

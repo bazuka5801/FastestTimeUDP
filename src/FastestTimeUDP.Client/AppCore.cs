@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
@@ -13,15 +14,18 @@ namespace FastestTimeUDP.Client
     {
         private BaseClient _Client;
         
+        public static AppCore Instance { get; private set; }
+        public static BaseClient Client => Instance._Client;
+        
         
         public override void OnAwake()
         {
             base.OnAwake();
+            Instance = this;
 
             StartThreadUI();
             
             _Client = this.AddType<BaseClient>();
-            _Client.Connect("127.0.0.1", 22540);
         }
 
         void StartThreadUI()
@@ -31,7 +35,7 @@ namespace FastestTimeUDP.Client
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new ConnectForm());
+                Application.Run(new MainForm());
                 
                 Process.GetCurrentProcess().Kill();
             }) {Name = "UI Thread", IsBackground = true};
