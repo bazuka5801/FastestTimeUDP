@@ -25,14 +25,7 @@ namespace FastestTimeUDP.Client.Forms
 
         private void StatusUpdate(object sender, ClientStatusEventArgs e)
         {
-            var baseServer = (BaseServer) sender;
-            this.RunInUI(() =>
-            {
-                if (e.Status == StatusE.Listening)
-                    lblStatus.Text = "Активен";
-                else
-                    lblStatus.Text = e.Status.ToString();
-            });
+            this.RunInUI(() => lblStatus.Text = e.Status.ToString());
         }
 
 
