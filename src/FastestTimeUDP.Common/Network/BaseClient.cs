@@ -112,7 +112,8 @@ namespace FastestTimeUDP.Common.Network
 
         public void SendAlive()
         {
-            _Net.Send(alivePacket);
+            _Data[0] = 1;
+            SendBuffer(0, 1);
         }
     }
 }

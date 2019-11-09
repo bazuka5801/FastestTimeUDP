@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Sockets;
 using SapphireEngine;
 
@@ -79,6 +80,15 @@ namespace FastestTimeUDP.Common.Network
                 _Net?.Dispose();
                 _Net = null;
             }
+        }
+
+        public void SendBuffer(int offset, int length)
+        {
+            _Net.Send(_Data, offset, length, SocketFlags.None);
+        }
+        public void SendBufferTo(int offset, int length, EndPoint remoteIP)
+        {
+            _Net.SendTo(_Data, offset, length, SocketFlags.None, remoteIP);
         }
     }
 }

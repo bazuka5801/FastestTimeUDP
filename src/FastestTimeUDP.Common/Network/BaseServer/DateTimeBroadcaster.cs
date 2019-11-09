@@ -25,13 +25,14 @@ namespace FastestTimeUDP.Common.Network
         private void SendDateTimeToAllClients()
         {
             var now  = BitConverter.GetBytes(DateTime.Now.ToBinary());
+            Buffer.BlockCopy(now, 0, _Data, 0, now.Length);
             var list = _SessionStore.GetAllSessions();
 
             lock (lockObject)
             {
                 for (var i = 0; i < list.Count; i++)
                 {
-                    _Net.SendTo(now, now.Length, SocketFlags.None, list[i].RemoteIP);
+                    SendBufferTo(0, now.Length, list[i].RemoteIP);
                     PPS++;
                 }
             }
