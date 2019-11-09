@@ -8,12 +8,13 @@ namespace FastestTimeUDP.Client.Forms
     public partial class MainForm : Form
     {
         private ConnectModel _Model;
+
         public MainForm()
         {
             InitializeComponent();
-            
+
             AppCore.Client.StatusUpdate += StatusUpdate;
-            AppCore.Client.ClientPPS += ClientPps;
+            AppCore.Client.ClientPPS    += ClientPps;
         }
 
         private void ClientPps(object sender, ClientPPSEventArgs e)
@@ -32,7 +33,7 @@ namespace FastestTimeUDP.Client.Forms
             var connectModel = new ConnectModel();
             new ConnectForm(connectModel).ShowDialog();
 
-            if (connectModel.Success == true)
+            if (connectModel.Success)
             {
                 msConnect.Enabled = false;
                 AppCore.Client.Connect(connectModel.IP, connectModel.Port);
@@ -43,7 +44,7 @@ namespace FastestTimeUDP.Client.Forms
         {
             InitConnect();
         }
-        
+
         private void msInfo_Click(object sender, EventArgs e)
         {
             MessageBox.Show(@"Автор: github.com/bazuka5801", "Информация");

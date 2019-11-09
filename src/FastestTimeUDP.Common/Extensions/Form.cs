@@ -12,7 +12,7 @@ namespace FastestTimeUDP.Common.Extensions
                 form.Invoke((Action) (() => RunInUI(form, action)));
                 return;
             }
-            
+
             action.Invoke();
         }
     }

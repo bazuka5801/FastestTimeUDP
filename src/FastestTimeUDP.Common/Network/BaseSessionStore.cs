@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using SapphireEngine;
@@ -8,20 +7,22 @@ namespace FastestTimeUDP.Common.Network
 {
     public class BaseSessionStore
     {
-        private Dictionary<String, BaseServerSession> _ActiveSessions    = new Dictionary<String, BaseServerSession>();
-        private List<BaseServerSession>               _ActiveSessionList = new List<BaseServerSession>();
+        private List<BaseServerSession> _ActiveSessionList = new List<BaseServerSession>();
 
-        public List<BaseServerSession> GetAllSessions() => _ActiveSessionList;
+        private readonly Dictionary<string, BaseServerSession> _ActiveSessions =
+            new Dictionary<string, BaseServerSession>();
+
+        public List<BaseServerSession> GetAllSessions()
+        {
+            return _ActiveSessionList;
+        }
 
         public BaseServerSession GetSession(EndPoint remoteIP)
         {
             var address = remoteIP.ToString();
-            if (_ActiveSessions.TryGetValue(address, out var session))
-            {
-                return session;
-            }
+            if (_ActiveSessions.TryGetValue(address, out var session)) return session;
 
-            session                  = CreateSession(remoteIP);
+            session = CreateSession(remoteIP);
             OnSessionOpen(session, address);
             return session;
         }
@@ -37,7 +38,7 @@ namespace FastestTimeUDP.Common.Network
         private void OnSessionOpen(BaseServerSession session, string address)
         {
             _ActiveSessions[address] = session;
-            _ActiveSessionList = _ActiveSessionList.ToList();
+            _ActiveSessionList       = _ActiveSessionList.ToList();
             _ActiveSessionList.Add(session);
             ConsoleSystem.Log($"[{address}] connected!");
         }
@@ -52,10 +53,7 @@ namespace FastestTimeUDP.Common.Network
 
         public void Cycle()
         {
-            for (var i = 0; i < _ActiveSessionList.Count; i++)
-            {
-                _ActiveSessionList[i].Cycle();
-            }
+            for (var i = 0; i < _ActiveSessionList.Count; i++) _ActiveSessionList[i].Cycle();
         }
     }
 }

@@ -3,9 +3,9 @@ using SapphireEngine;
 
 namespace FastestTimeUDP.Client
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             NativeMethods.AllocConsole();
             Framework.Initialization<AppCore>();

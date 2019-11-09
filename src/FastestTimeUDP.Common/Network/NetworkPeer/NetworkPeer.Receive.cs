@@ -8,9 +8,9 @@ namespace FastestTimeUDP.Common.Network
     {
         private void SetupThreadReceive()
         {
-            Thread receiveThread = new Thread(o => ReceiveWorker())
+            var receiveThread = new Thread(o => ReceiveWorker())
             {
-                Name = "UI Thread",
+                Name         = "UI Thread",
                 IsBackground = true
             };
 
@@ -19,10 +19,9 @@ namespace FastestTimeUDP.Common.Network
 
         private void ReceiveWorker()
         {
-            EndPoint senderIP = new IPEndPoint(0,0);
-            
+            EndPoint senderIP = new IPEndPoint(0, 0);
+
             while (_Net != null)
-            {
                 lock (lockObject)
                 {
                     if (_Net?.Available > 0)
@@ -31,7 +30,6 @@ namespace FastestTimeUDP.Common.Network
                         OnNetworkData(size, senderIP);
                     }
                 }
-            }
         }
 
         protected virtual void OnNetworkData(int length, EndPoint senderIP)

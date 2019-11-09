@@ -1,11 +1,10 @@
-﻿using System;
-using SapphireEngine;
+﻿using SapphireEngine;
 
 namespace FastestTimeUDP.Server
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Framework.Initialization<AppCore>();
         }

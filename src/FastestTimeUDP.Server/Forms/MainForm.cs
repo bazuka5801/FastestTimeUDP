@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Forms;
 using FastestTimeUDP.Common.Extensions;
 using FastestTimeUDP.Common.Network;
@@ -11,12 +9,13 @@ namespace FastestTimeUDP.Client.Forms
     public partial class MainForm : Form
     {
         private ConnectModel _Model;
+
         public MainForm()
         {
             InitializeComponent();
-            
+
             AppCore.Server.StatusUpdate += StatusUpdate;
-            AppCore.Server.ServerPPS += ServerPps;
+            AppCore.Server.ServerPPS    += ServerPps;
         }
 
         private void ServerPps(object sender, ClientPPSEventArgs e)
@@ -30,13 +29,9 @@ namespace FastestTimeUDP.Client.Forms
             this.RunInUI(() =>
             {
                 if (e.Status == StatusE.Listening)
-                {
-                    lblStatus.Text = $"Активен";
-                }
+                    lblStatus.Text = "Активен";
                 else
-                {
                     lblStatus.Text = e.Status.ToString();
-                }
             });
         }
 
@@ -46,7 +41,7 @@ namespace FastestTimeUDP.Client.Forms
             var connectModel = new ConnectModel();
             new ConnectForm(connectModel).ShowDialog();
 
-            if (connectModel.Success == true)
+            if (connectModel.Success)
             {
                 msConnect.Enabled = false;
                 AppCore.Server.Host(connectModel.IP, connectModel.Port);
@@ -57,7 +52,7 @@ namespace FastestTimeUDP.Client.Forms
         {
             InitConnect();
         }
-        
+
         private void msInfo_Click(object sender, EventArgs e)
         {
             MessageBox.Show(@"Автор: github.com/bazuka5801", "Информация");

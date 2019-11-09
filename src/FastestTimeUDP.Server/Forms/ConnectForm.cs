@@ -7,15 +7,15 @@ namespace FastestTimeUDP.Client.Forms
     public class ConnectModel
     {
         public string IP;
-        public int Port;
+        public int    Port;
 
-        public bool Success = false;
+        public bool Success;
     }
-    
+
     public partial class ConnectForm : Form
     {
-        private ConnectModel _Model;
-        
+        private readonly ConnectModel _Model;
+
         public ConnectForm(ConnectModel model)
         {
             _Model = model;
@@ -26,7 +26,7 @@ namespace FastestTimeUDP.Client.Forms
         {
             _Model.IP = tbIP.Text;
 
-            string ipRegex =
+            var ipRegex =
                 "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
 
             if (Regex.IsMatch(_Model.IP, ipRegex) == false)
@@ -34,7 +34,7 @@ namespace FastestTimeUDP.Client.Forms
                 MessageBox.Show("IP должен быть IP :)");
                 return;
             }
-            
+
             if (int.TryParse(tbPort.Text, out _Model.Port) == false)
             {
                 MessageBox.Show("Поле PORT должно содержать число");
@@ -46,8 +46,9 @@ namespace FastestTimeUDP.Client.Forms
                 MessageBox.Show("Число PORT должно быть больше 1024 и меньше 65536");
                 return;
             }
+
             _Model.Success = true;
-            this.Close();
+            Close();
         }
     }
 }
