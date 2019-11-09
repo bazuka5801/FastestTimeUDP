@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources =
                 new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.lblStatusCaption           = new System.Windows.Forms.Label();
-            this.lblReceivedPackagesCaption = new System.Windows.Forms.Label();
-            this.groupBox1                  = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1          = new System.Windows.Forms.TableLayoutPanel();
-            this.lblReceivedPackages        = new System.Windows.Forms.Label();
-            this.lblStatus                  = new System.Windows.Forms.Label();
-            this.ms                         = new System.Windows.Forms.MenuStrip();
-            this.msConnect                  = new System.Windows.Forms.ToolStripMenuItem();
-            this.msInfo                     = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblStatusCaption  = new System.Windows.Forms.Label();
+            this.lblPPSCaption     = new System.Windows.Forms.Label();
+            this.groupBox1         = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblPPS            = new System.Windows.Forms.Label();
+            this.lblStatus         = new System.Windows.Forms.Label();
+            this.ms                = new System.Windows.Forms.MenuStrip();
+            this.msConnect         = new System.Windows.Forms.ToolStripMenuItem();
+            this.msInfo            = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.ms.SuspendLayout();
@@ -56,16 +56,16 @@
             this.lblStatusCaption.Text      = "Статус: ";
             this.lblStatusCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblReceivedPackagesCaption
+            // lblPPSCaption
             // 
-            this.lblReceivedPackagesCaption.Location  = new System.Drawing.Point(2, 31);
-            this.lblReceivedPackagesCaption.Margin    = new System.Windows.Forms.Padding(0);
-            this.lblReceivedPackagesCaption.Name      = "lblReceivedPackagesCaption";
-            this.lblReceivedPackagesCaption.Padding   = new System.Windows.Forms.Padding(5);
-            this.lblReceivedPackagesCaption.Size      = new System.Drawing.Size(174, 29);
-            this.lblReceivedPackagesCaption.TabIndex  = 1;
-            this.lblReceivedPackagesCaption.Text      = "PPS:";
-            this.lblReceivedPackagesCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPPSCaption.Location  = new System.Drawing.Point(2, 31);
+            this.lblPPSCaption.Margin    = new System.Windows.Forms.Padding(0);
+            this.lblPPSCaption.Name      = "lblPPSCaption";
+            this.lblPPSCaption.Padding   = new System.Windows.Forms.Padding(5);
+            this.lblPPSCaption.Size      = new System.Drawing.Size(174, 29);
+            this.lblPPSCaption.TabIndex  = 1;
+            this.lblPPSCaption.Text      = "PPS:";
+            this.lblPPSCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox1
             // 
@@ -89,10 +89,10 @@
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.0226F));
             this.tableLayoutPanel1.ColumnStyles.Add(
                 new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.9774F));
-            this.tableLayoutPanel1.Controls.Add(this.lblReceivedPackages, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblPPS, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblStatus, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblStatusCaption, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblReceivedPackagesCaption, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblPPSCaption, 0, 1);
             this.tableLayoutPanel1.Dock     = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 30);
             this.tableLayoutPanel1.Name     = "tableLayoutPanel1";
@@ -105,17 +105,17 @@
             this.tableLayoutPanel1.Size     = new System.Drawing.Size(368, 62);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // lblReceivedPackages
+            // lblPPS
             // 
-            this.lblReceivedPackages.Dock      = System.Windows.Forms.DockStyle.Fill;
-            this.lblReceivedPackages.Location  = new System.Drawing.Point(176, 31);
-            this.lblReceivedPackages.Margin    = new System.Windows.Forms.Padding(0);
-            this.lblReceivedPackages.Name      = "lblReceivedPackages";
-            this.lblReceivedPackages.Padding   = new System.Windows.Forms.Padding(5);
-            this.lblReceivedPackages.Size      = new System.Drawing.Size(190, 29);
-            this.lblReceivedPackages.TabIndex  = 3;
-            this.lblReceivedPackages.Text      = "0";
-            this.lblReceivedPackages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPPS.Dock      = System.Windows.Forms.DockStyle.Fill;
+            this.lblPPS.Location  = new System.Drawing.Point(176, 31);
+            this.lblPPS.Margin    = new System.Windows.Forms.Padding(0);
+            this.lblPPS.Name      = "lblPPS";
+            this.lblPPS.Padding   = new System.Windows.Forms.Padding(5);
+            this.lblPPS.Size      = new System.Drawing.Size(190, 29);
+            this.lblPPS.TabIndex  = 3;
+            this.lblPPS.Text      = "0";
+            this.lblPPS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblStatus
             // 
@@ -181,12 +181,12 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label lblReceivedPackagesCaption;
         private System.Windows.Forms.Label lblStatusCaption;
-        private System.Windows.Forms.Label lblReceivedPackages;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.ToolStripMenuItem msInfo;
         private System.Windows.Forms.ToolStripMenuItem msConnect;
         private System.Windows.Forms.MenuStrip ms;
+        private System.Windows.Forms.Label lblPPS;
+        private System.Windows.Forms.Label lblPPSCaption;
     }
 }

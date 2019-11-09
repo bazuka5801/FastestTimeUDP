@@ -20,7 +20,7 @@ namespace FastestTimeUDP.Client.Forms
 
         private void ServerPps(object sender, ClientPPSEventArgs e)
         {
-            this.RunInUI(() => { lblReceivedPackages.Text = e.PPS.ToString(); });
+            this.RunInUI(() => { lblPPS.Text = e.PPS.ToString(); });
         }
 
         private void StatusUpdate(object sender, ClientStatusEventArgs e)
