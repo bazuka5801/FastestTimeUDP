@@ -64,7 +64,7 @@
             this.lblReceivedPackagesCaption.Padding   = new System.Windows.Forms.Padding(5);
             this.lblReceivedPackagesCaption.Size      = new System.Drawing.Size(174, 29);
             this.lblReceivedPackagesCaption.TabIndex  = 1;
-            this.lblReceivedPackagesCaption.Text      = "Получно пакетов: ";
+            this.lblReceivedPackagesCaption.Text      = "PPS:";
             this.lblReceivedPackagesCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox1
