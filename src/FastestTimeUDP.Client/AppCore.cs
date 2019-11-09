@@ -32,6 +32,8 @@ namespace FastestTimeUDP.Client
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new ConnectForm());
+                
+                Process.GetCurrentProcess().Kill();
             }) {Name = "UI Thread", IsBackground = true};
 
             uiThread.Start();
