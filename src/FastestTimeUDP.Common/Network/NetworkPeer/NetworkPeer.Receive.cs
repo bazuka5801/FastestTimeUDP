@@ -19,21 +19,24 @@ namespace FastestTimeUDP.Common.Network
 
         private void ReceiveWorker()
         {
-            IPEndPoint senderIP = new IPEndPoint(0,0);
+            EndPoint senderIP = new IPEndPoint(0,0);
             
             while (_Net != null)
             {
-                if (_Net.Available > 0)
+                lock (lockObject)
                 {
-                    var data = _Net.Receive(ref senderIP);
-                    OnNetworkData(data, senderIP);
+                    if (_Net?.Available > 0)
+                    {
+                        var size = _Net.ReceiveFrom(_Data, ref senderIP);
+                        OnNetworkData(size, senderIP);
+                    }
                 }
             }
         }
 
-        protected virtual void OnNetworkData(byte[] data, IPEndPoint senderIP)
+        protected virtual void OnNetworkData(int length, EndPoint senderIP)
         {
-            LastActivityTime = DateTime.Now;
+            LastReceiveActivityTime = DateTime.Now;
         }
     }
 }
