@@ -51,6 +51,8 @@ namespace FastestTimeUDP.Common.Network
         {
             base.OnUpdate();
 
+            if (IsConnected() == false) return;
+
             _SessionStore.Cycle();
 
             if (DateTime.Now.Subtract(lastPacketsUpdate).TotalSeconds >= 1)

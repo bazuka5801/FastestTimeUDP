@@ -1,4 +1,4 @@
-﻿using FastestTimeUDP.Client.Utils;
+﻿using FastestTimeUDP.Common.Utils;
 using SapphireEngine;
 
 namespace FastestTimeUDP.Client
@@ -8,6 +8,7 @@ namespace FastestTimeUDP.Client
         private static void Main(string[] args)
         {
             NativeMethods.AllocConsole();
+            NativeMethods.HideConsole();
             Framework.Initialization<AppCore>();
         }
     }
