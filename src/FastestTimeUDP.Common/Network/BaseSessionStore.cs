@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using SapphireEngine;
 
@@ -36,6 +37,7 @@ namespace FastestTimeUDP.Common.Network
         private void OnSessionOpen(BaseServerSession session, string address)
         {
             _ActiveSessions[address] = session;
+            _ActiveSessionList = _ActiveSessionList.ToList();
             _ActiveSessionList.Add(session);
             ConsoleSystem.Log($"[{address}] connected!");
         }
@@ -43,6 +45,7 @@ namespace FastestTimeUDP.Common.Network
         private void OnSessionClose(BaseServerSession sender, SessionDisconnectEventArgs e)
         {
             _ActiveSessions.Remove(sender.RemoteIP.ToString());
+            _ActiveSessionList = _ActiveSessionList.ToList();
             _ActiveSessionList.Remove(sender);
             ConsoleSystem.Log($"[{sender.RemoteIP}] disconnected!");
         }
